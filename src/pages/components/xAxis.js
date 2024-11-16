@@ -22,10 +22,8 @@ function XAxis({ xScale, height, width, axisLabel }) {
 
     return (
         <g>
-            {/* Render the axis line */}
             <line x1={0} y1={height} x2={width} y2={height} stroke="black" />
 
-            {/* Render ticks for linear scale */}
             {isLinear && xScale.ticks().map(tick => (
                 <g key={tick} transform={`translate(${xScale(tick)}, ${height})`}>
                     <line y2={5} stroke="black" />
@@ -38,7 +36,6 @@ function XAxis({ xScale, height, width, axisLabel }) {
                 </g>
             ))}
 
-            {/* Render ticks for band scale */}
             {!isLinear && xScale.domain().map(tickValue => (
                 <g key={tickValue} transform={`translate(${xScale(tickValue) + xScale.bandwidth() / 2}, ${height})`}>
                     <line y2={5} stroke="black" />
@@ -51,7 +48,6 @@ function XAxis({ xScale, height, width, axisLabel }) {
                 </g>
             ))}
 
-            {/* Axis label */}
             <text
                 style={{ textAnchor: 'end', fontSize: '15px' }}
                 x={width}

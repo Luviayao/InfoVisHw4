@@ -1,7 +1,6 @@
 function YAxis(props) {
     const { yScale, height, axisLable } = props;
 
-    // Ensure yScale is defined and has ticks method
     if (!yScale || !yScale.ticks) {
         return <g></g>;
     }
